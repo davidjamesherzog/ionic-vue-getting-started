@@ -6,13 +6,13 @@
 
 <script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { Options, Vue } from 'vue-class-component';
 
-export default defineComponent({
-  name: 'App',
+@Options({
   components: {
     IonApp,
     IonRouterOutlet
   }
-});
+})
+export default class App extends Vue {}
 </script>
