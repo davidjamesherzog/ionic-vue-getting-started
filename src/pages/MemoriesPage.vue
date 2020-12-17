@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts">
+import { Memory } from '@/models/Memory.model';
 import { IonButton, IonIcon } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import { Options, Vue } from 'vue-class-component';
@@ -29,6 +30,6 @@ export default class MemoriesPage extends Vue {
   private iconAdd = add;
 
   @memoriesModule.State('_memories')
-  private memories!: Array<any>;
+  private memories!: Array<Memory>;
 }
 </script>

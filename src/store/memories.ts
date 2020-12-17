@@ -1,11 +1,12 @@
-// import { createModule, mutation, action } from 'vuex-class-component';
+import { AddMemory } from '@/models/AddMemory.model';
+import { Memory } from '@/models/Memory.model';
 import { VuexModule, Module, Mutation, Action } from 'vuex-class-modules';
 
 @Module({ generateMutationSetters: true })
 export default class Music extends VuexModule {
   // state
   public title = 'test-memories';
-  public _memories: Array<any> = [
+  public _memories: Array<Memory> = [
     {
       id: 'm1',
       image:
@@ -30,19 +31,19 @@ export default class Music extends VuexModule {
   ];
 
   // getters
-  get memories(): Array<any> {
+  get memories(): Array<Memory> {
     return this._memories;
   }
 
   get memory(): any {
     return (memoryId: string) => {
-      return this.memories.find((memory) => memory.id === memoryId);
+      return this.memories.find((memory: Memory) => memory.id === memoryId);
     };
   }
 
   // mutations
   @Mutation
-  public add(memoryData: any) {
+  public add(memoryData: AddMemory) {
     const newMemory = {
       id: new Date().toISOString(),
       title: memoryData.title,
@@ -55,7 +56,7 @@ export default class Music extends VuexModule {
 
   // actions
   @Action
-  public async addMemory(memoryData: any): Promise<void> {
+  public async addMemory(memoryData: AddMemory): Promise<void> {
     this.add(memoryData);
   }
 }

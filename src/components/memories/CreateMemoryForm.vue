@@ -29,6 +29,7 @@ import {
 } from "@ionic/vue";
 import { Options, Vue } from 'vue-class-component';
 import { Emit } from 'vue-property-decorator';
+import { AddMemory } from "@/models/AddMemory.model";
 
 @Options({
   components: {
@@ -47,11 +48,13 @@ export default class MemoryOverview extends Vue {
 
   @Emit('save-memory')
   submitForm() {
-    return {
+    const memory: AddMemory = {
       title: this.enteredTitle,
       imageUrl: this.enteredImageUrl,
       description: this.enteredDescription,
     };
+
+    return memory;
   }
 }
 </script>

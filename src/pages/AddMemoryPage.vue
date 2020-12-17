@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+import { AddMemory } from '@/models/AddMemory.model';
 import { Options, Vue } from 'vue-class-component';
 import { namespace } from 'vuex-class';
 import CreateMemoryForm from '../components/memories/CreateMemoryForm.vue';
@@ -21,7 +22,7 @@ export default class AddMemoryPage extends Vue {
   @memoriesModule.Action
   private addMemory: any;
 
-  saveMemory(memoryData: any) {
+  saveMemory(memoryData: AddMemory) {
     this.addMemory(memoryData);
     this.$router.replace('/memories');
   }

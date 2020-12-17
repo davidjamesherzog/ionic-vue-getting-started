@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts">
+import { Memory } from '@/models/Memory.model';
 import { IonItem, IonThumbnail, IonImg, IonLabel } from '@ionic/vue';
 import { Options, Vue } from 'vue-class-component';
 import { Prop } from 'vue-property-decorator';
@@ -25,6 +26,6 @@ import { Prop } from 'vue-property-decorator';
 export default class MemoryListItem extends Vue {
     // props
     @Prop()
-    private memory!: any;
+    private memory!: Memory;
 }
 </script>
